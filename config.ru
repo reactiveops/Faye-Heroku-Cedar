@@ -19,7 +19,11 @@ class ServerAuth
 end
 
 faye_server = Faye::RackAdapter.new(:mount => '/faye', :timeout => 45)
-faye_server.add_extension(ServerAuth.new)
+# faye_server.add_extension(ServerAuth.new)
+
+# Faye::Logging.log_level = :debug 
+# Faye.logger = lambda { |m| puts m }
+
 run faye_server
 
 
